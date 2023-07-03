@@ -1,6 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 
+monthly_challenges = {
+  "january": "Eat veggies",
+  "february": "Walk for at least 20 mins per day",
+  "march": "Learn Django for at least 20 min per day",
+  "april": "code",
+  "may": "Eat veggies",
+  "june": "Walk for at least 20 mins per day",
+  "july": "Learn Django for at least 20 min per day",
+  "august": "code",
+  "september": "Eat veggies",
+  "october": "Walk for at least 20 mins per day",
+  "november": "Learn Django for at least 20 min per day",
+  "december": "code"
+}
+
 # Create your views here.
 
 # def january(request):
@@ -19,15 +34,9 @@ def monthly_challenge_by_number(request, month):
   return HttpResponse(month)
 
 def monthly_challenge(request, month):
-  challenge_text = None
-
-  if month == "january":
-    challenge_text = "Eat veggies"
-  elif month == "february":
-    challenge_text = "Walk for at least 20 mins per day"
-  elif month == "march":
-    challenge_text = "Learn Django for at least 20 min per day"
-  else:
-    return HttpResponseNotFound("This month is not supported")
+  try:
+    challenge_text = monthly_challenges[month]
+  except:
+    return HttpResponseNotFound("This month is not suppoerted")
 
   return HttpResponse(challenge_text)
