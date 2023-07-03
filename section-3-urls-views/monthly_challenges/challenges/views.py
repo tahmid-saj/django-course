@@ -15,6 +15,9 @@ from django.http import HttpResponse, HttpResponseNotFound
 # def april(request):
 #   return HttpResponse("Code")
 
+def monthly_challenge_by_number(request, month):
+  return HttpResponse(month)
+
 def monthly_challenge(request, month):
   challenge_text = None
 
