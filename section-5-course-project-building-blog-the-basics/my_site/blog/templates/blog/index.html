@@ -33,12 +33,14 @@
     <h2>My latest thoughts</h2>
 
     <ul>
-      {% include "blog/includes/post.html" %}
+      {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+      {% endfor %}
     </ul>
 
   </section>
 
-  <section>
+  <section id="about">
     <h2>What I do</h2>
 
     <p>Programming, adventures</p>
