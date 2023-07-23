@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block css_files %}
+  {% comment %} <link rel="stylesheet" href="{% static "blog/post.css" %}"> {% endcomment %}
   <link rel="stylesheet" href="{% static "blog/index.css" %}">
 {% endblock %}
 
@@ -20,7 +21,7 @@
 
   <section id="welcome">
     <header>
-      <img src="{% static "blog/images/max.png" %}" alt="The Author of the Blog"/>
+      <img src="" alt="The Author of the Blog"/>
 
       <h2>__ Blog</h2>
     </header>
@@ -32,19 +33,7 @@
     <h2>My latest thoughts</h2>
 
     <ul>
-      <li>
-        <article class="post">
-          <a href="">
-            <img src="{% static "blog/images/mountains.jpg" %}" alt="Mountain hiking"/>
-
-            <div class="post__content">
-              <h3>Mountain hiking</h3>
-              <p>There's nothing like the views when hiking</p>
-
-            </div>
-          </a>
-        </article>
-      </li>
+      {% include "blog/includes/post.html" %}
     </ul>
 
   </section>
