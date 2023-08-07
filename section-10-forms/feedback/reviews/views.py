@@ -8,12 +8,19 @@ def review(request):
     entered_username = request.POST["username"]
     print(entered_username)
 
+    if entered_username == "" and len(entered_username) >= 100:
+      return render(request, "reviews/review.html", {
+        "has_error": True
+      })
+
     return HttpResponseRedirect("/thank-you")
 
   return render(request, "reviews/review.html")
 
 
 def thank_you(request):
-  return render(request, "reviews/thank_you.html")
+  return render(request, "reviews/thank_you.html", {
+    "has_error": False
+  })
 
 
