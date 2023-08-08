@@ -8,7 +8,6 @@ from .models import Review
 
 def review(request):
   if request.method == "POST":
-
     form = ReviewForm(request.POST)
 
     if form.is_valid():
