@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView, CreateView
 
 from .forms import ReviewForm
 from .models import Review
@@ -19,7 +19,7 @@ class ReviewView(FormView):
 
   def form_valid(self, form: Any):
     form.save()
-    
+
     return super().form_valid(form)
 
   # def get(self, request):
