@@ -7,3 +7,4 @@ class Review(models.Model):
   review_text = models.TextField()
   rating = models.IntegerField()
 
+
